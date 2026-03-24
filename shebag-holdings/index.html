@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shebag Holdings Limited — Diversified Excellence Since 1988</title>
+  <meta name="description" content="Shebag Holdings Limited is a Nigerian conglomerate operating across ICT, Agriculture, Engineering, and Mining since 1988." />
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    /* ── HOME-SPECIFIC ── */
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      background: var(--green-deep);
+      display: flex;
+      align-items: center;
+      position: relative;
+      overflow: hidden;
+      padding-top: var(--nav-height);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 70% 80% at 80% 40%, rgba(201,168,76,0.07) 0%, transparent 60%),
+        radial-gradient(ellipse 50% 60% at 15% 80%, rgba(20,66,42,0.8) 0%, transparent 60%);
+    }
+    .hero-pattern {
+      position: absolute;
+      inset: 0;
+      background-image: repeating-linear-gradient(
+        0deg, transparent, transparent 79px,
+        rgba(255,255,255,0.02) 80px
+      ),
+      repeating-linear-gradient(
+        90deg, transparent, transparent 79px,
+        rgba(255,255,255,0.02) 80px
+      );
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .hero-left {}
+    .hero-est {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.75rem;
+      margin-bottom: 2rem;
+    }
+    .hero-est-line { width: 32px; height: 1.5px; background: var(--gold); }
+    .hero-est span {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+    .hero h1 {
+      color: var(--white);
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+    .hero-desc {
+      color: rgba(255,255,255,0.68);
+      font-size: 1.05rem;
+      max-width: 440px;
+      margin-bottom: 2.5rem;
+      line-height: 1.8;
+    }
+    .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+    .hero-right {
+      position: relative;
+    }
+    .hero-card-stack {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+    .hero-div-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,76,0.18);
+      padding: 1.5rem;
+      transition: var(--transition);
+      cursor: default;
+    }
+    .hero-div-card:hover {
+      background: rgba(201,168,76,0.06);
+      border-color: rgba(201,168,76,0.45);
+      transform: translateY(-3px);
+    }
+    .hero-div-card-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: rgba(201,168,76,0.3);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .hero-div-card h4 {
+      color: var(--white);
+      font-size: 1rem;
+      margin-bottom: 0.25rem;
+    }
+    .hero-div-card p {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.45);
+    }
+    .hero-div-card-icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(201,168,76,0.12);
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.75rem;
+    }
+    .hero-div-card-icon svg { width: 16px; height: 16px; stroke: var(--gold); }
+
+    /* Scroll indicator */
+    .hero-scroll {
+      position: absolute;
+      bottom: 2.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+      color: rgba(255,255,255,0.35);
+      font-size: 0.65rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      z-index: 2;
+      animation: bounce 2s infinite;
+    }
+    .hero-scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, rgba(201,168,76,0.6), transparent);
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateX(-50%) translateY(0); }
+      50%       { transform: translateX(-50%) translateY(6px); }
+    }
+
+    /* Stats strip */
+    .stats-strip {
+      background: var(--green-mid);
+      padding: 48px 0;
+      border-top: 1px solid rgba(201,168,76,0.12);
+      border-bottom: 1px solid rgba(201,168,76,0.12);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      text-align: center;
+    }
+    .stat-item { padding: 1rem; }
+    .stat-item h3 { font-size: clamp(2rem, 4vw, 3rem); }
+    .stat-divider {
+      width: 1px;
+      background: rgba(255,255,255,0.08);
+      align-self: stretch;
+    }
+
+    /* About snippet */
+    .about-snippet {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+    .about-snippet-img {
+      position: relative;
+      height: 440px;
+    }
+    .about-img-main {
+      width: 80%;
+      height: 100%;
+      background: linear-gradient(135deg, var(--green-mid), var(--green-deep));
+      position: absolute;
+      left: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .about-img-placeholder {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 5rem;
+      font-weight: 300;
+      color: rgba(201,168,76,0.2);
+      text-align: center;
+      line-height: 1;
+    }
+    .about-img-accent {
+      position: absolute;
+      bottom: -1.5rem;
+      right: 0;
+      width: 55%;
+      height: 55%;
+      background: var(--gold-pale);
+      border: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+    }
+    .about-img-badge {
+      text-align: center;
+    }
+    .about-img-badge-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 600;
+      color: var(--green-deep);
+      line-height: 1;
+    }
+    .about-img-badge p {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-top: 0.25rem;
+    }
+    .about-text { }
+    .about-text p { margin-top: 1.25rem; line-height: 1.9; }
+    .about-pillars {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+    .about-pillar {
+      padding: 1rem;
+      background: var(--cream);
+      border-left: 3px solid var(--gold);
+    }
+    .about-pillar h4 { font-size: 0.95rem; color: var(--green-deep); }
+    .about-pillar p { font-size: 0.82rem; margin-top: 0.25rem; }
+
+    /* Divisions section */
+    .divisions-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5px;
+      background: rgba(10,42,26,0.08);
+      border: 1px solid rgba(10,42,26,0.08);
+    }
+    .division-card {
+      background: var(--white);
+      padding: 2.5rem;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+    .division-card::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold);
+      transform: scaleX(0);
+      transition: transform 0.35s ease;
+    }
+    .division-card:hover { background: var(--cream); }
+    .division-card:hover::after { transform: scaleX(1); }
+    .div-card-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 1.25rem;
+    }
+    .div-icon {
+      width: 56px;
+      height: 56px;
+      background: var(--gold-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .div-icon svg { width: 28px; height: 28px; stroke: var(--green-deep); fill: none; }
+    .div-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      font-weight: 300;
+      color: rgba(10,42,26,0.06);
+      line-height: 1;
+    }
+    .division-card h3 { font-size: 1.5rem; color: var(--green-deep); margin-bottom: 0.75rem; }
+    .division-card p { font-size: 0.9rem; line-height: 1.8; margin-bottom: 1.5rem; }
+    .div-link {
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green-deep);
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      transition: gap 0.2s, color 0.2s;
+    }
+    .div-link:hover { color: var(--gold); gap: 0.85rem; }
+    .div-link svg { width: 14px; height: 14px; stroke: currentColor; }
+
+    /* Award banner */
+    .award-banner {
+      background: var(--gold);
+      padding: 32px 0;
+    }
+    .award-inner {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 2rem;
+      text-align: center;
+    }
+    .award-inner p {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--green-deep);
+    }
+    .award-inner h3 {
+      font-size: 1.5rem;
+      color: var(--green-deep);
+      font-weight: 600;
+    }
+    .award-divider { width: 1.5px; height: 40px; background: rgba(10,42,26,0.25); }
+
+    /* CTA section */
+    .cta-section {
+      background: var(--green-deep);
+      padding: 96px 0;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 80% at 50% 50%, rgba(201,168,76,0.06), transparent);
+    }
+    .cta-section > * { position: relative; z-index: 1; }
+    .cta-section h2 { color: var(--white); max-width: 600px; margin: 0 auto 1.5rem; }
+    .cta-section p { color: rgba(255,255,255,0.6); max-width: 480px; margin: 0 auto 2.5rem; }
+    .cta-actions { display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap; }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .hero-content { grid-template-columns: 1fr; }
+      .hero-right { display: none; }
+      .about-snippet { grid-template-columns: 1fr; }
+      .about-snippet-img { height: 300px; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+      .stat-divider { display: none; }
+    }
+    @media (max-width: 640px) {
+      .divisions-grid { grid-template-columns: 1fr; }
+      .about-pillars { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ════════════════ NAVBAR ════════════════ -->
+  <nav id="navbar" class="nav-transparent">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">SH</div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-name">Shebag Holdings</span>
+          <span class="nav-logo-sub">Limited · Est. 1988</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="nav-dropdown">
+          <a href="#">Divisions ▾</a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="ict.html">ICT</a></li>
+            <li><a href="agriculture.html">Agriculture</a></li>
+            <li><a href="engineering.html">Engineering</a></li>
+            <li><a href="mining.html">Mining</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn--gold nav-cta">Get In Touch</a>
+      <button class="nav-toggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ════════════════ HERO ════════════════ -->
+  <section class="hero">
+    <div class="hero-pattern"></div>
+    <div class="hero-content">
+      <div class="hero-left">
+        <div class="hero-est">
+          <span class="hero-est-line"></span>
+          <span>Established 1988 · Kaduna, Nigeria</span>
+        </div>
+        <h1>
+          Diversified<br/>
+          <em>Excellence</em><br/>
+          Across Nigeria
+        </h1>
+        <p class="hero-desc">
+          A leading Nigerian conglomerate delivering integrated solutions across ICT, Agriculture, Engineering, and Mining — building industries and creating opportunity for over three decades.
+        </p>
+        <div class="hero-actions">
+          <a href="about.html" class="btn btn--gold">Our Story</a>
+          <a href="#divisions" class="btn btn--outline-white">Explore Divisions</a>
+        </div>
+      </div>
+      <div class="hero-right">
+        <div class="hero-card-stack">
+          <div class="hero-div-card">
+            <div class="hero-div-card-num">01</div>
+            <div class="hero-div-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <h4>ICT</h4>
+            <p>Technology supply &amp; solutions</p>
+          </div>
+          <div class="hero-div-card">
+            <div class="hero-div-card-num">02</div>
+            <div class="hero-div-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 2a7 7 0 0 1 7 7c0 5.25-7 13-7 13S5 14.25 5 9a7 7 0 0 1 7-7z"/><circle cx="12" cy="9" r="2.5"/></svg>
+            </div>
+            <h4>Agriculture</h4>
+            <p>Commodities &amp; export</p>
+          </div>
+          <div class="hero-div-card">
+            <div class="hero-div-card-num">03</div>
+            <div class="hero-div-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M12 22V12M2 7l10-5 10 5v5H2V7z"/><path d="M6 12v10M18 12v10"/></svg>
+            </div>
+            <h4>Engineering</h4>
+            <p>Technical &amp; construction</p>
+          </div>
+          <div class="hero-div-card">
+            <div class="hero-div-card-num">04</div>
+            <div class="hero-div-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke-width="1.5"><path d="M3 20h18M5 20V9l7-6 7 6v11M9 20v-6h6v6"/></svg>
+            </div>
+            <h4>Mining</h4>
+            <p>Solid minerals &amp; resources</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <div class="hero-scroll-line"></div>
+      <span>Scroll</span>
+    </div>
+  </section>
+
+  <!-- ════════════════ STATS ════════════════ -->
+  <section class="stats-strip">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-item" data-reveal>
+          <h3>36+</h3>
+          <p>Years of Operation</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item" data-reveal data-delay="1">
+          <h3>4</h3>
+          <p>Business Divisions</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item" data-reveal data-delay="2">
+          <h3>10</h3>
+          <p>Service Verticals</p>
+        </div>
+        <div class="stat-divider"></div>
+        <div class="stat-item" data-reveal data-delay="3">
+          <h3>1</h3>
+          <p>World Bank Contract</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ ABOUT SNIPPET ════════════════ -->
+  <section class="section">
+    <div class="container">
+      <div class="about-snippet">
+        <div class="about-snippet-img" data-reveal>
+          <div class="about-img-main">
+            <div class="about-img-placeholder">SH</div>
+          </div>
+          <div class="about-img-accent">
+            <div class="about-img-badge">
+              <div class="about-img-badge-num">1988</div>
+              <p>Year Founded</p>
+            </div>
+          </div>
+        </div>
+        <div class="about-text">
+          <p class="section-label">Who We Are</p>
+          <div class="gold-line"></div>
+          <h2>Nigeria's Trusted Diversified Conglomerate</h2>
+          <p>
+            Shebag Holdings Limited was established in 1988 with a clear mission: to indigenise critical service sectors dominated by foreign companies, with a particular focus on oil field services and engineering supplies in Nigeria.
+          </p>
+          <p>
+            Over three decades, we have expanded into a full-service conglomerate — competing internationally, creating employment, conserving foreign exchange, and building capacity for future generations.
+          </p>
+          <div class="about-pillars">
+            <div class="about-pillar">
+              <h4>Our Mission</h4>
+              <p>Provide world-class services across every sector we operate in.</p>
+            </div>
+            <div class="about-pillar">
+              <h4>Our Vision</h4>
+              <p>Export Nigerian expertise and commodities to global markets.</p>
+            </div>
+          </div>
+          <br/>
+          <a href="about.html" class="btn btn--gold">Full Company Profile</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ DIVISIONS ════════════════ -->
+  <section class="section" id="divisions" style="background: var(--cream); padding-top: 0;">
+    <div class="container">
+      <div style="text-align:center; margin-bottom: 3rem;" data-reveal>
+        <p class="section-label">What We Do</p>
+        <div class="gold-line gold-line--center"></div>
+        <h2 style="color: var(--green-deep);">Our Four Divisions</h2>
+      </div>
+      <div class="divisions-grid">
+
+        <div class="division-card" data-reveal>
+          <div class="div-card-header">
+            <div class="div-icon">
+              <svg viewBox="0 0 24 24" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+            </div>
+            <span class="div-num">01</span>
+          </div>
+          <h3>ICT Division</h3>
+          <p>Comprehensive technology solutions covering computer hardware supply and installation, telecommunications infrastructure, laboratory equipment, and IT training. Enabling Nigerian businesses and institutions with cutting-edge tools.</p>
+          <a href="ict.html" class="div-link">
+            Explore ICT
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="division-card" data-reveal data-delay="1">
+          <div class="div-card-header">
+            <div class="div-icon">
+              <svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><path d="M3 17l3-6 4 4 4-6 4 6"/><path d="M3 21h18"/></svg>
+            </div>
+            <span class="div-num">02</span>
+          </div>
+          <h3>Agriculture Division</h3>
+          <p>From farm to global market — we supply, process, and export premium Nigerian agricultural commodities including sesame seeds, raw cashew nuts, dried ginger, garlic, gum arabic, and natural oils to buyers across North America, Europe, and Asia.</p>
+          <a href="agriculture.html" class="div-link">
+            Explore Agriculture
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="division-card" data-reveal data-delay="2">
+          <div class="div-card-header">
+            <div class="div-icon">
+              <svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><path d="M12 22V12M2 7l10-5 10 5v5H2V7z"/><path d="M6 12v10M18 12v10"/></svg>
+            </div>
+            <span class="div-num">03</span>
+          </div>
+          <h3>Engineering Division</h3>
+          <p>Technical and process engineering support for rehabilitation, maintenance, and construction. We supply scientific equipment, manage water engineering projects, and provide end-to-end support for the oil, gas, and industrial sectors.</p>
+          <a href="engineering.html" class="div-link">
+            Explore Engineering
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+        <div class="division-card" data-reveal data-delay="3">
+          <div class="div-card-header">
+            <div class="div-icon">
+              <svg viewBox="0 0 24 24" stroke-width="1.5" fill="none"><path d="M3 20h18M7 20V8l5-4 5 4v12"/><path d="M10 20v-5h4v5"/></svg>
+            </div>
+            <span class="div-num">04</span>
+          </div>
+          <h3>Mining Division</h3>
+          <p>Exploration and supply of Nigeria's rich solid mineral resources. Our mining operations are committed to sustainable extraction practices, regulatory compliance, and the development of mineral resource value chains for both domestic and export markets.</p>
+          <a href="mining.html" class="div-link">
+            Explore Mining
+            <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ AWARD BANNER ════════════════ -->
+  <div class="award-banner">
+    <div class="container award-inner">
+      <p>Recognition</p>
+      <div class="award-divider"></div>
+      <h3>🏆 Euromarket Award 2002 — Brussels</h3>
+      <div class="award-divider"></div>
+      <p>World Bank Contract Holder</p>
+    </div>
+  </div>
+
+  <!-- ════════════════ CTA ════════════════ -->
+  <section class="cta-section">
+    <div class="container">
+      <p class="section-label" style="margin-bottom:1rem;">Work With Us</p>
+      <h2>Ready to Partner With Shebag Holdings?</h2>
+      <p>Whether you're a buyer, investor, government agency, or institution — we're ready to discuss how we can serve your needs.</p>
+      <div class="cta-actions">
+        <a href="contact.html" class="btn btn--gold">Contact Us</a>
+        <a href="about.html" class="btn btn--outline-white">Learn More</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════ FOOTER ════════════════ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <div class="nav-logo-mark">SH</div>
+            <div class="nav-logo-text">
+              <span class="nav-logo-name">Shebag Holdings</span>
+              <span class="nav-logo-sub">Limited · Est. 1988</span>
+            </div>
+          </div>
+          <p>A leading Nigerian conglomerate delivering diversified excellence across ICT, Agriculture, Engineering, and Mining since 1988.</p>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="about.html">About Us</a></li>
+            <li><a href="about.html#management">Management</a></li>
+            <li><a href="about.html#history">Our History</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Divisions</h5>
+          <ul>
+            <li><a href="ict.html">ICT</a></li>
+            <li><a href="agriculture.html">Agriculture</a></li>
+            <li><a href="engineering.html">Engineering</a></li>
+            <li><a href="mining.html">Mining</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Contact</h5>
+          <ul>
+            <li><a href="#">3A, Ali-Akilu Road</a></li>
+            <li><a href="#">Kaduna State, Nigeria</a></li>
+            <li><a href="mailto:info@shebagholdings.com">info@shebagholdings.com</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Shebag Holdings Limited. All rights reserved.</p>
+        <div class="footer-award">
+          <div class="footer-award-badge">★</div>
+          <span>Euromarket Award 2002 · Brussels</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>

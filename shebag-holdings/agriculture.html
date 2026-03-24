@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Agriculture Division — Shebag Holdings Limited</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .what-we-do-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: start;
+    }
+    .what-we-do-list { margin-top: 1.5rem; }
+    .wwd-item {
+      display: flex;
+      gap: 1.25rem;
+      padding: 1.25rem 0;
+      border-bottom: 1px solid rgba(10,42,26,0.08);
+    }
+    .wwd-num {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 300;
+      color: var(--gold);
+      flex-shrink: 0;
+      width: 32px;
+      line-height: 1.2;
+    }
+    .wwd-item h4 { color: var(--green-deep); margin-bottom: 0.25rem; }
+    .wwd-item p { font-size: 0.88rem; }
+
+    .commodities-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .commodity-card {
+      background: var(--white);
+      overflow: hidden;
+      transition: var(--transition);
+      border: 1px solid rgba(10,42,26,0.07);
+    }
+    .commodity-card:hover { box-shadow: var(--shadow-lg); transform: translateY(-4px); }
+    .commodity-img {
+      height: 140px;
+      background: linear-gradient(135deg, var(--green-mid), var(--green-deep));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3.5rem;
+    }
+    .commodity-body { padding: 1.5rem; }
+    .commodity-body h4 { color: var(--green-deep); margin-bottom: 0.5rem; }
+    .commodity-body p { font-size: 0.85rem; line-height: 1.8; }
+    .commodity-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-top: 1rem; }
+    .commodity-tag {
+      padding: 0.2rem 0.65rem;
+      background: var(--gold-pale);
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--green-deep);
+      border-radius: 2px;
+    }
+
+    .export-section {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .export-map-placeholder {
+      height: 360px;
+      background: var(--green-mid);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255,255,255,0.3);
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border: 1px solid var(--border);
+      font-family: 'Jost', sans-serif;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+    .export-map-placeholder span { font-size: 3rem; }
+    .destinations { margin-top: 1.5rem; }
+    .dest-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.85rem 0;
+      border-bottom: 1px solid rgba(10,42,26,0.08);
+    }
+    .dest-name { font-weight: 500; font-size: 0.9rem; color: var(--ink); }
+    .dest-region {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      padding: 0.2rem 0.65rem;
+      background: var(--gold-pale);
+      border-radius: 2px;
+    }
+
+    @media (max-width: 960px) {
+      .what-we-do-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .commodities-grid { grid-template-columns: repeat(2, 1fr); }
+      .export-section { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .commodities-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">SH</div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-name">Shebag Holdings</span>
+          <span class="nav-logo-sub">Limited · Est. 1988</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="nav-dropdown">
+          <a href="#" class="active">Divisions ▾</a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="ict.html">ICT</a></li>
+            <li><a href="agriculture.html">Agriculture</a></li>
+            <li><a href="engineering.html">Engineering</a></li>
+            <li><a href="mining.html">Mining</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn--gold nav-cta">Get In Touch</a>
+      <button class="nav-toggle"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container page-hero__content">
+      <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><a href="#">Divisions</a><span>/</span>Agriculture</div>
+      <span class="tag">Division 02</span>
+      <h1 style="margin-top:0.75rem;">Agriculture Division</h1>
+      <p>From Nigeria's fields to global markets — premium commodities, processed and exported with care.</p>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO -->
+  <section class="section">
+    <div class="container">
+      <div class="what-we-do-grid">
+        <div data-reveal>
+          <p class="section-label">What We Do</p>
+          <div class="gold-line"></div>
+          <h2 style="color:var(--green-deep);">From Farm to Global Market</h2>
+          <p style="margin-top:1.25rem; line-height:1.9;">Shebag's Agriculture Division sources, processes, and exports premium Nigerian agricultural commodities. We work directly with farmers, cooperatives, and processing facilities to ensure the highest quality product reaches our international buyers.</p>
+          <div class="what-we-do-list">
+            <div class="wwd-item">
+              <div class="wwd-num">01</div>
+              <div>
+                <h4>Sourcing &amp; Procurement</h4>
+                <p>We work with verified farmers and cooperatives across Nigeria's key agricultural belts — ensuring traceability and consistent supply.</p>
+              </div>
+            </div>
+            <div class="wwd-item">
+              <div class="wwd-num">02</div>
+              <div>
+                <h4>Processing &amp; Quality Control</h4>
+                <p>Commodities are cleaned, graded, and processed to international standards before packaging and shipment.</p>
+              </div>
+            </div>
+            <div class="wwd-item">
+              <div class="wwd-num">03</div>
+              <div>
+                <h4>Packaging &amp; Logistics</h4>
+                <p>Proper packaging in jute, polypropylene, or buyer-specified containers, with full documentation (phytosanitary certificates, weight certificates, SGS inspection).</p>
+              </div>
+            </div>
+            <div class="wwd-item">
+              <div class="wwd-num">04</div>
+              <div>
+                <h4>Export &amp; Documentation</h4>
+                <p>Full export documentation support — including NEPC registration, Form NXP, and customs clearance — for seamless international trade.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div data-reveal data-delay="2">
+          <p class="section-label">Agricultural Chemicals</p>
+          <div class="gold-line"></div>
+          <h2 style="color:var(--green-deep);">Inputs &amp; Agro-Chemicals</h2>
+          <p style="margin-top:1.25rem; line-height:1.9;">In addition to exports, Shebag supplies agricultural chemicals and fertilizers to farmers and agribusinesses across Nigeria — supporting improved crop yields and food security.</p>
+          <br/>
+          <div class="card" style="border-left: 4px solid var(--gold);">
+            <h4 style="color:var(--green-deep); margin-bottom:0.75rem;">Products We Supply</h4>
+            <ul style="list-style:none;">
+              <li style="padding:0.35rem 0; font-size:0.88rem; border-bottom:1px solid rgba(10,42,26,0.06); display:flex; gap:0.5rem; align-items:center;"><span style="color:var(--gold);">→</span> NPK fertilizers</li>
+              <li style="padding:0.35rem 0; font-size:0.88rem; border-bottom:1px solid rgba(10,42,26,0.06); display:flex; gap:0.5rem; align-items:center;"><span style="color:var(--gold);">→</span> Herbicides &amp; pesticides</li>
+              <li style="padding:0.35rem 0; font-size:0.88rem; border-bottom:1px solid rgba(10,42,26,0.06); display:flex; gap:0.5rem; align-items:center;"><span style="color:var(--gold);">→</span> Irrigation supplies</li>
+              <li style="padding:0.35rem 0; font-size:0.88rem; display:flex; gap:0.5rem; align-items:center;"><span style="color:var(--gold);">→</span> Farm tools &amp; equipment</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE SELL -->
+  <section class="section" style="background:var(--cream); padding-top:0;">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:3rem;" data-reveal>
+        <p class="section-label">What We Sell</p>
+        <div class="gold-line gold-line--center"></div>
+        <h2 style="color:var(--green-deep);">Our Commodity Portfolio</h2>
+        <p style="max-width:520px; margin:0.75rem auto 0;">Premium Nigerian agricultural commodities — sourced, graded, and exported to global buyers.</p>
+      </div>
+      <div class="commodities-grid">
+        <div class="commodity-card" data-reveal>
+          <div class="commodity-img">🌾</div>
+          <div class="commodity-body">
+            <h4>Sesame Seeds</h4>
+            <p>High-oil-content white and brown sesame seeds sourced from Jigawa, Borno, and Nasarawa states. Cleaned and hulled to buyer specification.</p>
+            <div class="commodity-tags">
+              <span class="commodity-tag">Export Ready</span>
+              <span class="commodity-tag">99% Purity</span>
+            </div>
+          </div>
+        </div>
+        <div class="commodity-card" data-reveal data-delay="1">
+          <div class="commodity-img">🥜</div>
+          <div class="commodity-body">
+            <h4>Raw Cashew Nuts</h4>
+            <p>Grade A raw cashew nuts (RCN) from southern Nigeria. Available in bulk volumes with full phytosanitary documentation for export.</p>
+            <div class="commodity-tags">
+              <span class="commodity-tag">Grade A</span>
+              <span class="commodity-tag">Bulk Available</span>
+            </div>
+          </div>
+        </div>
+        <div class="commodity-card" data-reveal data-delay="2">
+          <div class="commodity-img">🫚</div>
+          <div class="commodity-body">
+            <h4>Dried Ginger</h4>
+            <p>Sun-dried and machine-dried split ginger with high gingerol content. Sourced from Nigeria's leading ginger belt in Kaduna, Nassarawa, and Benue.</p>
+            <div class="commodity-tags">
+              <span class="commodity-tag">High Gingerol</span>
+              <span class="commodity-tag">Split &amp; Whole</span>
+            </div>
+          </div>
+        </div>
+        <div class="commodity-card" data-reveal data-delay="3">
+          <div class="commodity-img">🧄</div>
+          <div class="commodity-body">
+            <h4>Garlic</h4>
+            <p>Fresh and dried garlic bulbs from northern Nigeria. Available whole or processed, with strong pungency and shelf-stable packaging.</p>
+            <div class="commodity-tags">
+              <span class="commodity-tag">Fresh &amp; Dried</span>
+              <span class="commodity-tag">Whole &amp; Processed</span>
+            </div>
+          </div>
+        </div>
+        <div class="commodity-card" data-reveal data-delay="4">
+          <div class="commodity-img">🌿</div>
+          <div class="commodity-body">
+            <h4>Gum Arabic</h4>
+            <p>Acacia senegal and Acacia seyal gum arabic from the sub-Saharan belt. Cleaned, kibbled, or spray-dried — serving food, pharma, and industrial buyers.</p>
+            <div class="commodity-tags">
+              <span class="commodity-tag">Food Grade</span>
+              <span class="commodity-tag">Pharma Grade</span>
+            </div>
+          </div>
+        </div>
+        <div class="commodity-card" data-reveal data-delay="5">
+          <div class="commodity-img">🫙</div>
+          <div class="commodity-body">
+            <h4>Natural Oils</h4>
+            <p>Cold-pressed natural oils including shea butter oil, sesame oil, and groundnut oil — for food processing, cosmetics, and industrial applications.</p>
+            <div class="commodity-tags">
+              <span class="commodity-tag">Cold Pressed</span>
+              <span class="commodity-tag">Cosmetic Grade</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPORT DESTINATIONS -->
+  <section class="section section--dark">
+    <div class="container">
+      <div class="export-section">
+        <div data-reveal>
+          <p class="section-label">Global Reach</p>
+          <div class="gold-line"></div>
+          <h2>Export Destinations</h2>
+          <p style="margin-top:1.25rem; line-height:1.9;">Shebag Agriculture exports to buyers across three continents. We handle all logistics, documentation, and compliance — making procurement straightforward for international buyers.</p>
+          <div class="destinations">
+            <div class="dest-row"><span class="dest-name">🇺🇸 United States</span><span class="dest-region">North America</span></div>
+            <div class="dest-row"><span class="dest-name">🇨🇦 Canada</span><span class="dest-region">North America</span></div>
+            <div class="dest-row"><span class="dest-name">🇩🇪 Germany</span><span class="dest-region">Europe</span></div>
+            <div class="dest-row"><span class="dest-name">🇬🇧 United Kingdom</span><span class="dest-region">Europe</span></div>
+            <div class="dest-row"><span class="dest-name">🇳🇱 Netherlands</span><span class="dest-region">Europe</span></div>
+            <div class="dest-row"><span class="dest-name">🇨🇳 China</span><span class="dest-region">Asia</span></div>
+            <div class="dest-row"><span class="dest-name">🇮🇳 India</span><span class="dest-region">Asia</span></div>
+          </div>
+        </div>
+        <div data-reveal data-delay="2">
+          <div class="export-map-placeholder">
+            <span>🌍</span>
+            Export Map
+          </div>
+          <br/>
+          <a href="contact.html" class="btn btn--gold" style="width:100%; justify-content:center;">Enquire About Commodities</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <div class="nav-logo-mark">SH</div>
+            <div class="nav-logo-text">
+              <span class="nav-logo-name">Shebag Holdings</span>
+              <span class="nav-logo-sub">Limited · Est. 1988</span>
+            </div>
+          </div>
+          <p>A leading Nigerian conglomerate delivering diversified excellence across ICT, Agriculture, Engineering, and Mining since 1988.</p>
+        </div>
+        <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About Us</a></li><li><a href="about.html#management">Management</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="footer-col"><h5>Divisions</h5><ul><li><a href="ict.html">ICT</a></li><li><a href="agriculture.html">Agriculture</a></li><li><a href="engineering.html">Engineering</a></li><li><a href="mining.html">Mining</a></li></ul></div>
+        <div class="footer-col"><h5>Contact</h5><ul><li><a href="#">3A, Ali-Akilu Road</a></li><li><a href="#">Kaduna State, Nigeria</a></li><li><a href="mailto:info@shebagholdings.com">info@shebagholdings.com</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2024 Shebag Holdings Limited. All rights reserved.</p>
+        <div class="footer-award"><div class="footer-award-badge">★</div><span>Euromarket Award 2002 · Brussels</span></div>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
