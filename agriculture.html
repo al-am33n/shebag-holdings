@@ -12,6 +12,72 @@
       gap: 4rem;
       align-items: start;
     }
+
+    /* ── FACAN BANNER ── */
+    .facan-banner {
+      background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-mid) 100%);
+      border-top: 3px solid var(--gold);
+      border-bottom: 3px solid var(--gold);
+      padding: 56px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .facan-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 60% 100% at 80% 50%, rgba(201,168,76,0.12) 0%, transparent 70%);
+    }
+    .facan-inner {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .facan-inner h3 {
+      color: var(--white);
+      font-size: clamp(1.6rem, 3vw, 2.2rem);
+      margin: 0.5rem 0 1rem;
+    }
+    .facan-inner h3 em {
+      color: var(--gold);
+      font-style: italic;
+    }
+    .facan-inner p {
+      color: rgba(255,255,255,0.75);
+      font-size: 0.95rem;
+      line-height: 1.85;
+    }
+    .facan-stat {
+      background: rgba(201,168,76,0.06);
+      border: 1px solid rgba(201,168,76,0.3);
+      padding: 2rem;
+      text-align: center;
+    }
+    .facan-stat-icon {
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .facan-stat-label {
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+    .facan-stat h4 {
+      color: var(--white);
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+    }
+    .facan-stat p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.82rem;
+      line-height: 1.7;
+    }
     .what-we-do-list { margin-top: 1.5rem; }
     .wwd-item {
       display: flex;
@@ -112,6 +178,7 @@
       .what-we-do-grid { grid-template-columns: 1fr; gap: 2.5rem; }
       .commodities-grid { grid-template-columns: repeat(2, 1fr); }
       .export-section { grid-template-columns: 1fr; }
+      .facan-inner { grid-template-columns: 1fr; gap: 2rem; }
     }
     @media (max-width: 640px) {
       .commodities-grid { grid-template-columns: 1fr; }
@@ -154,6 +221,27 @@
       <span class="tag">Division 02</span>
       <h1 style="margin-top:0.75rem;">Agriculture Division</h1>
       <p>From Nigeria's fields to global markets — premium commodities, processed and exported with care.</p>
+    </div>
+  </section>
+
+  <!-- FACAN CREDIBILITY BANNER -->
+  <section class="facan-banner">
+    <div class="container">
+      <div class="facan-inner">
+        <div data-reveal>
+          <p class="section-label">National Leadership</p>
+          <div class="gold-line"></div>
+          <h3>Led by the President of <em>FACAN</em></h3>
+          <p>Shebag Holdings' Agriculture Division benefits from the direct leadership of <strong style="color:var(--white);">Sheriff Balogun, President of the Federation of Agricultural Commodities Associations of Nigeria (FACAN)</strong> — the apex body representing all major commodity associations in Nigeria.</p>
+          <p style="margin-top:1rem;">This positions Shebag at the heart of Nigeria's agricultural policy, regulatory dialogue, and international trade relations — giving our buyers and partners unmatched access, credibility, and market intelligence.</p>
+        </div>
+        <div class="facan-stat" data-reveal data-delay="2">
+          <div class="facan-stat-icon">🌾</div>
+          <p class="facan-stat-label">FACAN Membership Covers</p>
+          <h4>All Major Nigerian Commodity Associations</h4>
+          <p>From sesame and cashew to ginger, gum arabic, and cocoa — FACAN unites every key export commodity body in Nigeria.</p>
+        </div>
+      </div>
     </div>
   </section>
 

@@ -104,6 +104,79 @@
     }
     .person-card p { font-size: 0.85rem; margin-top: 0.75rem; }
 
+    /* ── SUSTAINABILITY SECTION ── */
+    .sustainability-section {
+      background: linear-gradient(135deg, #0E3A24 0%, #14422A 100%);
+      padding: 96px 0;
+      position: relative;
+      overflow: hidden;
+    }
+    .sustainability-section::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 80% at 80% 30%, rgba(201,168,76,0.08) 0%, transparent 60%);
+    }
+    .sustainability-section > * { position: relative; z-index: 1; }
+    .sustainability-section h2 { color: var(--white); }
+    .sustainability-section .section-label { color: var(--gold); }
+    .sustainability-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.4fr;
+      gap: 4rem;
+      align-items: start;
+      margin-top: 2rem;
+    }
+    .sustainability-intro p {
+      color: rgba(255,255,255,0.78);
+      font-size: 0.95rem;
+      line-height: 1.9;
+      margin-bottom: 1.25rem;
+    }
+    .sustainability-phd {
+      background: rgba(201,168,76,0.08);
+      border: 1px solid rgba(201,168,76,0.3);
+      padding: 1.5rem;
+      margin-top: 1.5rem;
+    }
+    .sustainability-phd p {
+      color: rgba(255,255,255,0.82);
+      font-size: 0.88rem;
+      margin: 0;
+      line-height: 1.7;
+    }
+    .sustainability-phd strong { color: var(--gold); }
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.25rem;
+    }
+    .pillar-card {
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(201,168,76,0.2);
+      padding: 1.75rem;
+      transition: var(--transition);
+    }
+    .pillar-card:hover {
+      background: rgba(201,168,76,0.08);
+      border-color: rgba(201,168,76,0.5);
+      transform: translateY(-3px);
+    }
+    .pillar-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+    }
+    .pillar-card h4 {
+      color: var(--white);
+      font-size: 1.05rem;
+      margin-bottom: 0.5rem;
+    }
+    .pillar-card p {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.85rem;
+      line-height: 1.7;
+    }
+
     /* ── FOUNDER FEATURE CARD ── */
     .founder-feature {
       background: linear-gradient(135deg, rgba(201,168,76,0.08), rgba(255,255,255,0.02));
@@ -221,10 +294,13 @@
       .founder-feature { grid-template-columns: 1fr; text-align: center; padding: 2rem; }
       .founder-photo { margin: 0 auto; }
       .founder-creds { grid-template-columns: 1fr; text-align: left; }
+      .sustainability-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+      .pillars-grid { grid-template-columns: 1fr 1fr; }
     }
     @media (max-width: 640px) {
       .values-grid { grid-template-columns: 1fr; }
       .management-grid { grid-template-columns: 1fr; }
+      .pillars-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -372,6 +448,51 @@
     </div>
   </section>
 
+  <!-- SUSTAINABILITY -->
+  <section class="sustainability-section">
+    <div class="container">
+      <div style="text-align:center; max-width:680px; margin: 0 auto;" data-reveal>
+        <p class="section-label">Sustainability &amp; ESG</p>
+        <div class="gold-line gold-line--center"></div>
+        <h2>Building Nigeria, Responsibly</h2>
+        <p style="color:rgba(255,255,255,0.7); margin-top:1rem;">Sustainability is not an afterthought at Shebag Holdings — it is woven into how we operate across every division, from sustainable sourcing in agriculture to responsible extraction in mining.</p>
+      </div>
+      <div class="sustainability-grid">
+        <div class="sustainability-intro" data-reveal>
+          <p>Our approach to sustainability is shaped by a core belief: Nigerian businesses must lead — not follow — on environmental responsibility, ethical governance, and inclusive economic development. The decisions we make today shape the country our children will inherit tomorrow.</p>
+          <p>Across our four divisions, we operate to international ESG standards: working with verified farmers, applying rigorous environmental controls in mining, supporting Nigerian SMEs through our supply chain, and continuously raising the bar on workplace standards.</p>
+          <div class="sustainability-phd">
+            <p>🎓 <strong>Founder's Commitment:</strong> Sheriff Balogun is currently pursuing a <strong>PhD in Sustainable Development at the University of Abuja</strong> — bringing rigorous academic thinking directly into Shebag's long-term strategy and ESG framework.</p>
+          </div>
+        </div>
+        <div data-reveal data-delay="2">
+          <div class="pillars-grid">
+            <div class="pillar-card">
+              <div class="pillar-icon">🌱</div>
+              <h4>Environmental Stewardship</h4>
+              <p>Environmental impact assessments at every mining site. Sustainable sourcing across agriculture. Site rehabilitation built into every project.</p>
+            </div>
+            <div class="pillar-card">
+              <div class="pillar-icon">👥</div>
+              <h4>Social Impact</h4>
+              <p>Direct employment for Nigerians. Skills training programmes. Engagement with host communities and farmer cooperatives.</p>
+            </div>
+            <div class="pillar-card">
+              <div class="pillar-icon">⚖️</div>
+              <h4>Governance &amp; Ethics</h4>
+              <p>Full regulatory compliance across all divisions. Transparent contracts. Membership of national and international trade bodies.</p>
+            </div>
+            <div class="pillar-card">
+              <div class="pillar-icon">🌍</div>
+              <h4>Economic Development</h4>
+              <p>Indigenisation of critical sectors. Foreign exchange conservation. Building Nigerian capacity to compete globally.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- MANAGEMENT -->
   <section class="section section--dark" id="management">
     <div class="container">
@@ -389,11 +510,11 @@
           <div class="founder-name">Sheriff Balogun</div>
           <div class="founder-titles">Founder &amp; Managing Director</div>
           <p>Sheriff Balogun founded Shebag Holdings Limited in 1988 with the vision of building Nigerian capacity in critical service sectors then dominated by foreign companies. Over more than three decades, he has grown the company from a Kaduna-based engineering supply firm into a diversified conglomerate operating across ICT, Agriculture, Engineering, and Mining — with international export relationships spanning three continents.</p>
-          <p>Beyond Shebag Holdings, Sheriff is a leading voice in Nigeria's agricultural and trade policy ecosystem, serving in senior leadership roles at the Federation of Agricultural Commodities Associations of Nigeria (FACAN) and the Nigerian-American Chamber of Commerce (NACC). His advocacy and policy work has shaped national conversations on food security, agricultural value chains, and Nigeria–US trade relations.</p>
+          <p>Beyond Shebag Holdings, Sheriff is a leading voice in Nigeria's agricultural and trade policy ecosystem, serving as <strong style="color:var(--white);">President of both the Federation of Agricultural Commodities Associations of Nigeria (FACAN) and the Nigerian-American Chamber of Commerce (NACC)</strong>. His advocacy and policy work has shaped national conversations on food security, agricultural value chains, and Nigeria–US trade relations.</p>
           <div class="founder-creds">
             <div class="founder-cred">Founder &amp; MD, Shebag Holdings Limited (Est. 1988)</div>
             <div class="founder-cred">President, Federation of Agricultural Commodities Associations of Nigeria (FACAN)</div>
-            <div class="founder-cred">Senior Leadership, Nigerian-American Chamber of Commerce (NACC)</div>
+            <div class="founder-cred">President, Nigerian-American Chamber of Commerce (NACC)</div>
             <div class="founder-cred">PhD Candidate, Sustainable Development — University of Abuja</div>
             <div class="founder-cred">Recipient, Euromarket Award (Brussels, 2002)</div>
             <div class="founder-cred">Active in Nigeria's agricultural policy advocacy &amp; international trade</div>
