@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Computing &amp; Telecommunications Division — Shebag Holdings Limited</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .products-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+    .product-card { background: var(--white); border: 1px solid rgba(10,42,26,0.07); padding: 1.75rem; transition: var(--transition); }
+    .product-card:hover { border-color: var(--border); box-shadow: var(--shadow); transform: translateY(-3px); }
+    .product-cat { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.75rem; }
+    .product-card h4 { color: var(--green-deep); margin-bottom: 0.5rem; }
+    .product-card p { font-size: 0.88rem; line-height: 1.8; }
+    .product-card ul { margin-top: 0.75rem; }
+    .product-card ul li { font-size: 0.82rem; color: var(--ink-light); padding: 0.3rem 0; border-bottom: 1px solid rgba(10,42,26,0.05); display: flex; align-items: center; gap: 0.5rem; }
+    .product-card ul li::before { content: '→'; color: var(--gold); font-size: 0.75rem; flex-shrink: 0; }
+
+    .security-banner { background: linear-gradient(135deg, var(--green-deep) 0%, var(--green-mid) 100%); border-top: 3px solid var(--gold); border-bottom: 3px solid var(--gold); padding: 64px 0; position: relative; overflow: hidden; }
+    .security-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 100% at 20% 50%, rgba(201,168,76,0.12) 0%, transparent 70%); }
+    .security-inner { position: relative; z-index: 1; }
+    .security-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem; }
+    .security-card { background: rgba(255,255,255,0.04); border: 1px solid rgba(201,168,76,0.25); padding: 1.75rem; transition: var(--transition); }
+    .security-card:hover { background: rgba(201,168,76,0.08); border-color: rgba(201,168,76,0.5); transform: translateY(-3px); }
+    .security-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+    .security-card h4 { color: var(--white); font-size: 1.1rem; margin-bottom: 0.5rem; }
+    .security-card p { color: rgba(255,255,255,0.7); font-size: 0.88rem; line-height: 1.75; margin-bottom: 0.75rem; }
+    .security-card ul li { font-size: 0.8rem; color: rgba(255,255,255,0.6); padding: 0.25rem 0; display: flex; gap: 0.4rem; }
+    .security-card ul li::before { content: '◆'; color: var(--gold); font-size: 0.6rem; flex-shrink: 0; margin-top: 0.45rem; }
+
+    .partners-section { background: var(--cream); padding: 72px 0; }
+    .partners-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; margin-top: 2.5rem; background: var(--white); border: 1px solid rgba(10,42,26,0.08); }
+    .partner-card { padding: 2.5rem 1.5rem; text-align: center; border-right: 1px solid rgba(10,42,26,0.08); transition: var(--transition); }
+    .partner-card:last-child { border-right: none; }
+    .partner-card:hover { background: var(--gold-pale); }
+    .partner-name { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 700; color: var(--green-deep); margin-bottom: 0.5rem; }
+    .partner-desc { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-light); }
+
+    .services-strip { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0; border: 1px solid rgba(10,42,26,0.08); }
+    .service-item { padding: 2rem 1.5rem; border-right: 1px solid rgba(10,42,26,0.08); text-align: center; transition: var(--transition); }
+    .service-item:last-child { border-right: none; }
+    .service-item:hover { background: var(--gold-pale); }
+    .service-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .service-item h4 { font-size: 0.95rem; color: var(--green-deep); }
+    .service-item p { font-size: 0.8rem; margin-top: 0.35rem; }
+
+    .cta-strip { background: var(--green-deep); padding: 48px 0; }
+    .cta-strip-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .cta-strip h3 { color: var(--white); }
+    .cta-strip p { color: rgba(255,255,255,0.65); }
+
+    @media (max-width: 960px) {
+      .products-grid { grid-template-columns: repeat(2, 1fr); }
+      .services-strip { grid-template-columns: repeat(2, 1fr); }
+      .security-grid { grid-template-columns: 1fr; }
+      .partners-row { grid-template-columns: repeat(2, 1fr); }
+      .partner-card:nth-child(2) { border-right: none; }
+      .partner-card:nth-child(1), .partner-card:nth-child(2) { border-bottom: 1px solid rgba(10,42,26,0.08); }
+    }
+    @media (max-width: 640px) {
+      .products-grid { grid-template-columns: 1fr; }
+      .services-strip { grid-template-columns: 1fr; }
+      .partners-row { grid-template-columns: 1fr; }
+      .partner-card { border-right: none; border-bottom: 1px solid rgba(10,42,26,0.08); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">SH</div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-name">Shebag Holdings</span>
+          <span class="nav-logo-sub">Limited · Est. 1988</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="nav-dropdown">
+          <a href="#" class="active">Divisions ▾</a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="computing.html">Computing &amp; Telecom</a></li>
+            <li><a href="oilgas.html">Oil &amp; Gas</a></li>
+            <li><a href="engineering.html">Engineering</a></li>
+            <li><a href="mining.html">Mining</a></li>
+            <li><a href="agriculture.html">Agriculture</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn--gold nav-cta">Get In Touch</a>
+      <button class="nav-toggle"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container page-hero__content">
+      <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><a href="#">Divisions</a><span>/</span>Computing &amp; Telecom</div>
+      <span class="tag">Division 01</span>
+      <h1 style="margin-top:0.75rem;">Computing &amp; Telecommunications</h1>
+      <p>End-to-end ICT, telecommunications, and physical security solutions. NITDA-registered. Backed by global OEM partnerships.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:center;">
+        <div data-reveal>
+          <p class="section-label">What We Do</p>
+          <div class="gold-line"></div>
+          <h2 style="color:var(--green-deep);">Nigeria's Technology Partner</h2>
+          <p style="margin-top:1.25rem; line-height:1.9;">Shebag's Computing &amp; Telecommunications Division has been equipping Nigerian institutions with world-class technology since the early 1990s. We supply, install, and support technology infrastructure for government agencies, educational institutions, oil &amp; gas operators, research laboratories, and private enterprises.</p>
+          <p style="margin-top:1rem; line-height:1.9;">We are an <strong style="color:var(--green-deep);">NITDA-registered</strong> ICT provider with global OEM partnerships, ensuring genuine equipment, full warranty coverage, and expert local technical support.</p>
+        </div>
+        <div data-reveal data-delay="2">
+          <div class="services-strip" style="grid-template-columns:1fr 1fr;">
+            <div class="service-item"><div class="service-icon">💻</div><h4>Computing</h4><p>Hardware, servers, networking</p></div>
+            <div class="service-item" style="border-bottom:1px solid rgba(10,42,26,0.08);"><div class="service-icon">📡</div><h4>Telecom</h4><p>Installation &amp; servicing</p></div>
+            <div class="service-item" style="border-top:none;"><div class="service-icon">🔐</div><h4>Security</h4><p>CCTV, fire safety, access</p></div>
+            <div class="service-item" style="border-top:none; border-right:none;"><div class="service-icon">🎓</div><h4>Training</h4><p>ICT &amp; education solutions</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="security-banner">
+    <div class="container security-inner">
+      <div data-reveal>
+        <p class="section-label">Physical Security Systems</p>
+        <div class="gold-line"></div>
+        <h2 style="color:var(--white);">Securing People, Assets &amp; Facilities</h2>
+        <p style="color:rgba(255,255,255,0.7); margin-top:1rem; max-width:680px; line-height:1.85;">Shebag designs, supplies, and installs integrated physical security systems for corporate, government, industrial, and institutional facilities. From discrete CCTV to mission-critical fire safety, our solutions protect what matters most.</p>
+      </div>
+      <div class="security-grid">
+        <div class="security-card" data-reveal>
+          <div class="security-icon">📹</div>
+          <h4>Video Surveillance (CCTV)</h4>
+          <p>Modern IP-based CCTV systems with analytics, remote monitoring, and recording capabilities for indoor and outdoor environments.</p>
+          <ul>
+            <li>IP camera supply &amp; installation</li>
+            <li>NVR &amp; DVR systems</li>
+            <li>Remote &amp; mobile access</li>
+            <li>AI-powered video analytics</li>
+            <li>Monitoring control rooms</li>
+          </ul>
+        </div>
+        <div class="security-card" data-reveal data-delay="1">
+          <div class="security-icon">🔥</div>
+          <h4>Fire &amp; Life Safety Systems</h4>
+          <p>Code-compliant fire detection, alarm, and suppression systems designed to protect lives and property in any built environment.</p>
+          <ul>
+            <li>Smoke &amp; heat detection</li>
+            <li>Alarm &amp; notification systems</li>
+            <li>Sprinkler &amp; suppression systems</li>
+            <li>Emergency lighting</li>
+            <li>Annual inspection &amp; maintenance</li>
+          </ul>
+        </div>
+        <div class="security-card" data-reveal data-delay="2">
+          <div class="security-icon">📞</div>
+          <h4>Security Communication Systems</h4>
+          <p>Reliable command-and-control communications for security personnel, emergency response, and incident management.</p>
+          <ul>
+            <li>Two-way radio systems</li>
+            <li>Intercoms &amp; public address</li>
+            <li>Emergency call points</li>
+            <li>Access control integration</li>
+            <li>Centralised command consoles</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="partners-section">
+    <div class="container">
+      <div style="text-align:center;" data-reveal>
+        <p class="section-label">Global OEM Partners</p>
+        <div class="gold-line gold-line--center"></div>
+        <h2 style="color:var(--green-deep);">Backed by World-Class Technology Brands</h2>
+        <p style="max-width:560px; margin:0.75rem auto 0;">We supply and install genuine products from leading global manufacturers, with full warranty support and authorised channel pricing.</p>
+      </div>
+      <div class="partners-row">
+        <div class="partner-card" data-reveal><div class="partner-name">Dell</div><div class="partner-desc">Servers &amp; Workstations</div></div>
+        <div class="partner-card" data-reveal data-delay="1"><div class="partner-name">Cisco</div><div class="partner-desc">Networking &amp; Security</div></div>
+        <div class="partner-card" data-reveal data-delay="2"><div class="partner-name">Huawei</div><div class="partner-desc">Telecom &amp; Infrastructure</div></div>
+        <div class="partner-card" data-reveal data-delay="3"><div class="partner-name">HP</div><div class="partner-desc">Computing &amp; Printing</div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:3rem;" data-reveal>
+        <p class="section-label">Product &amp; Service Listings</p>
+        <div class="gold-line gold-line--center"></div>
+        <h2 style="color:var(--green-deep);">Comprehensive ICT Portfolio</h2>
+      </div>
+      <div class="products-grid">
+        <div class="product-card" data-reveal>
+          <p class="product-cat">Computing</p>
+          <h4>Computer Hardware</h4>
+          <p>Full supply and installation of computing equipment for offices, schools, and government institutions.</p>
+          <ul><li>Desktop &amp; laptop computers</li><li>Servers &amp; workstations</li><li>Networking equipment (routers, switches)</li><li>UPS &amp; power backup systems</li><li>Printers &amp; peripherals</li></ul>
+        </div>
+        <div class="product-card" data-reveal data-delay="1">
+          <p class="product-cat">Telecommunications</p>
+          <h4>Telecom Infrastructure</h4>
+          <p>Installation, configuration, and servicing of telecommunications systems for enterprise and institutional use.</p>
+          <ul><li>PABX systems</li><li>VoIP infrastructure</li><li>Fibre &amp; structured cabling</li><li>Satellite communication systems</li><li>Network maintenance contracts</li></ul>
+        </div>
+        <div class="product-card" data-reveal data-delay="2">
+          <p class="product-cat">Laboratory</p>
+          <h4>Scientific Equipment</h4>
+          <p>Supply of laboratory and scientific instruments for schools, hospitals, research facilities, and technical institutions.</p>
+          <ul><li>Chemistry &amp; physics lab kits</li><li>Microscopes &amp; analytical tools</li><li>Safety equipment</li><li>Medical diagnostic equipment</li><li>Industrial measurement tools</li></ul>
+        </div>
+        <div class="product-card" data-reveal data-delay="3">
+          <p class="product-cat">Education</p>
+          <h4>Education Technology</h4>
+          <p>End-to-end technology solutions for schools and training institutions, from smart classroom setups to e-learning systems.</p>
+          <ul><li>Smart boards &amp; projectors</li><li>Computer lab setups</li><li>E-learning platform deployment</li><li>Staff ICT training</li><li>Technical curriculum support</li></ul>
+        </div>
+        <div class="product-card" data-reveal data-delay="4">
+          <p class="product-cat">Support</p>
+          <h4>IT Support &amp; Maintenance</h4>
+          <p>Ongoing technical support, preventive maintenance, and repair services for all equipment supplied.</p>
+          <ul><li>Annual maintenance contracts</li><li>On-site technician support</li><li>Spare parts management</li><li>System upgrades</li><li>Warranty management</li></ul>
+        </div>
+        <div class="product-card" data-reveal data-delay="5">
+          <p class="product-cat">Consulting</p>
+          <h4>ICT Consulting</h4>
+          <p>Strategic advisory for organisations planning technology procurement, infrastructure upgrades, or digital transformation.</p>
+          <ul><li>Needs assessment</li><li>Procurement advisory</li><li>Vendor management</li><li>Technology roadmapping</li><li>Government compliance support</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cta-strip">
+    <div class="container cta-strip-inner">
+      <div>
+        <h3>Need a Technology or Security Quote?</h3>
+        <p>We supply, install, and support. Get in touch for a custom quote.</p>
+      </div>
+      <a href="contact.html" class="btn btn--gold">Request a Quote</a>
+    </div>
+  </div>
+
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <div class="nav-logo-mark">SH</div>
+            <div class="nav-logo-text">
+              <span class="nav-logo-name">Shebag Holdings</span>
+              <span class="nav-logo-sub">Limited · Est. 1988</span>
+            </div>
+          </div>
+          <p>A leading Nigerian conglomerate delivering diversified excellence across Computing &amp; Telecommunications, Oil &amp; Gas, Engineering, Mining, and Agriculture since 1988.</p>
+        </div>
+        <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About Us</a></li><li><a href="about.html#management">Management</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="footer-col"><h5>Divisions</h5><ul><li><a href="computing.html">Computing &amp; Telecom</a></li><li><a href="oilgas.html">Oil &amp; Gas</a></li><li><a href="engineering.html">Engineering</a></li><li><a href="mining.html">Mining</a></li><li><a href="agriculture.html">Agriculture</a></li></ul></div>
+        <div class="footer-col"><h5>Contact</h5><ul><li><a href="#">141 Christopher Okojie Crescent</a></li><li><a href="#">Katampe Extension, Abuja</a></li><li><a href="mailto:sbalogun@hotmail.com">sbalogun@hotmail.com</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Shebag Holdings Limited. All rights reserved.</p>
+        <div class="footer-award"><div class="footer-award-badge">★</div><span>Euromarket Award 2002 · Brussels</span></div>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>

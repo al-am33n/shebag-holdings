@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Oil &amp; Gas Division — Shebag Holdings Limited</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <style>
+    .services-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; }
+    .service-card { background: var(--white); padding: 2rem; border: 1px solid rgba(10,42,26,0.07); transition: var(--transition); position: relative; }
+    .service-card:hover { border-color: var(--border); box-shadow: var(--shadow); transform: translateY(-3px); }
+    .service-card-num { position: absolute; top: 1.5rem; right: 1.75rem; font-family: 'Cormorant Garamond', serif; font-size: 3rem; font-weight: 300; color: rgba(10,42,26,0.05); line-height: 1; }
+    .service-card h4 { color: var(--green-deep); margin: 1rem 0 0.5rem; font-size: 1.1rem; }
+    .service-card p { font-size: 0.88rem; line-height: 1.8; }
+
+    .heritage-banner { background: linear-gradient(135deg, var(--green-deep), var(--green-mid)); padding: 64px 0; position: relative; overflow: hidden; }
+    .heritage-banner::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 60% 100% at 80% 50%, rgba(201,168,76,0.12) 0%, transparent 70%); }
+    .heritage-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.4fr 1fr; gap: 4rem; align-items: center; }
+    .heritage-inner h3 { color: var(--white); font-size: clamp(1.6rem, 3vw, 2.2rem); margin: 0.5rem 0 1rem; }
+    .heritage-inner h3 em { color: var(--gold); font-style: italic; }
+    .heritage-inner p { color: rgba(255,255,255,0.75); font-size: 0.95rem; line-height: 1.85; margin-bottom: 1rem; }
+    .heritage-stat { background: rgba(201,168,76,0.06); border: 1px solid rgba(201,168,76,0.3); padding: 2rem; text-align: center; }
+    .heritage-stat-icon { font-size: 2.5rem; margin-bottom: 0.5rem; }
+    .heritage-stat-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.5rem; }
+    .heritage-stat h4 { color: var(--white); font-size: 1.3rem; margin-bottom: 0.5rem; }
+    .heritage-stat p { color: rgba(255,255,255,0.6); font-size: 0.82rem; line-height: 1.7; }
+
+    .sectors-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      border: 1px solid rgba(10,42,26,0.08);
+    }
+    .sector-item {
+      padding: 2rem 1.5rem;
+      border-right: 1px solid rgba(10,42,26,0.08);
+      text-align: center;
+      transition: var(--transition);
+    }
+    .sector-item:last-child { border-right: none; }
+    .sector-item:hover { background: var(--gold-pale); }
+    .sector-icon { font-size: 2rem; margin-bottom: 0.75rem; }
+    .sector-item h4 { font-size: 0.95rem; color: var(--green-deep); }
+    .sector-item p { font-size: 0.8rem; margin-top: 0.35rem; }
+
+    .cta-strip { background: var(--green-deep); padding: 48px 0; }
+    .cta-strip-inner { display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; }
+    .cta-strip h3 { color: var(--white); }
+    .cta-strip p { color: rgba(255,255,255,0.65); }
+
+    @media (max-width: 960px) {
+      .services-grid { grid-template-columns: 1fr; }
+      .heritage-inner { grid-template-columns: 1fr; gap: 2rem; }
+      .sectors-strip { grid-template-columns: 1fr; }
+      .sector-item { border-right: none; border-bottom: 1px solid rgba(10,42,26,0.08); }
+      .sector-item:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="nav-logo-mark">SH</div>
+        <div class="nav-logo-text">
+          <span class="nav-logo-name">Shebag Holdings</span>
+          <span class="nav-logo-sub">Limited · Est. 1988</span>
+        </div>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li class="nav-dropdown">
+          <a href="#" class="active">Divisions ▾</a>
+          <ul class="nav-dropdown-menu">
+            <li><a href="computing.html">Computing &amp; Telecom</a></li>
+            <li><a href="oilgas.html">Oil &amp; Gas</a></li>
+            <li><a href="engineering.html">Engineering</a></li>
+            <li><a href="mining.html">Mining</a></li>
+            <li><a href="agriculture.html">Agriculture</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <a href="contact.html" class="btn btn--gold nav-cta">Get In Touch</a>
+      <button class="nav-toggle"><span></span><span></span><span></span></button>
+    </div>
+  </nav>
+
+  <section class="page-hero">
+    <div class="container page-hero__content">
+      <div class="breadcrumb"><a href="index.html">Home</a><span>/</span><a href="#">Divisions</a><span>/</span>Oil &amp; Gas</div>
+      <span class="tag">Division 02</span>
+      <h1 style="margin-top:0.75rem;">Oil &amp; Gas Division</h1>
+      <p>Shebag's founding sector — providing oil field services, supplies, and technical support across Nigeria's energy industry since 1988.</p>
+    </div>
+  </section>
+
+  <!-- HERITAGE / NIPEX BANNER -->
+  <section class="heritage-banner">
+    <div class="container">
+      <div class="heritage-inner">
+        <div data-reveal>
+          <p class="section-label">Founding Sector</p>
+          <div class="gold-line"></div>
+          <h3>Where the <em>Shebag story</em> began.</h3>
+          <p>When Shebag Holdings was incorporated in 1988, the company was founded with a singular purpose: to indigenise oil field services and engineering supplies — sectors then dominated by foreign multinationals. For more than three decades, oil &amp; gas has remained at the core of our business.</p>
+          <p>Today, Shebag is a <strong style="color:var(--white);">NIPEX-registered vendor</strong> serving operators, EPC contractors, and regulators across Nigeria's upstream, midstream, and downstream value chains.</p>
+        </div>
+        <div class="heritage-stat" data-reveal data-delay="2">
+          <div class="heritage-stat-icon">🛢️</div>
+          <p class="heritage-stat-label">NIPEX Registered</p>
+          <h4>Nigerian Petroleum Exchange Vendor</h4>
+          <p>Pre-qualified to participate in tenders and contracts across the Nigerian oil &amp; gas industry.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTORS WE SERVE -->
+  <section class="section">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:3rem;" data-reveal>
+        <p class="section-label">Sectors We Serve</p>
+        <div class="gold-line gold-line--center"></div>
+        <h2 style="color:var(--green-deep);">Upstream, Midstream &amp; Downstream</h2>
+      </div>
+      <div class="sectors-strip">
+        <div class="sector-item">
+          <div class="sector-icon">⛽</div>
+          <h4>Upstream</h4>
+          <p>Exploration, production &amp; oil field services</p>
+        </div>
+        <div class="sector-item">
+          <div class="sector-icon">🏭</div>
+          <h4>Midstream</h4>
+          <p>Storage, pipelines &amp; processing</p>
+        </div>
+        <div class="sector-item">
+          <div class="sector-icon">⚙️</div>
+          <h4>Downstream</h4>
+          <p>Refining, distribution &amp; petrochemicals</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="section" style="background:var(--cream); padding-top:0;">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:3rem;" data-reveal>
+        <p class="section-label">Our Services</p>
+        <div class="gold-line gold-line--center"></div>
+        <h2 style="color:var(--green-deep);">Oil &amp; Gas Capabilities</h2>
+        <p style="max-width:520px; margin:0.75rem auto 0;">From engineering supplies to operational support — we deliver across the full value chain.</p>
+      </div>
+      <div class="services-grid">
+        <div class="service-card" data-reveal>
+          <span class="service-card-num">01</span>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--green-deep)" stroke-width="1.5"><path d="M12 2v20M5 12h14M7 7l10 10M17 7L7 17"/></svg>
+          </div>
+          <h4>Oil Field Services</h4>
+          <p>Onshore and offshore field support including well servicing equipment, drilling consumables, wellhead supplies, and field maintenance support for operators and EPC contractors.</p>
+        </div>
+        <div class="service-card" data-reveal data-delay="1">
+          <span class="service-card-num">02</span>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--green-deep)" stroke-width="1.5"><path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 1 1 7.072 0l-.548.547A3.374 3.374 0 0 0 14 18.469V19a2 2 0 1 1-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/></svg>
+          </div>
+          <h4>Engineering &amp; Equipment Supply</h4>
+          <p>Supply of specialised engineering equipment, instrumentation, pumps, valves, fittings, gaskets, and other critical hardware sourced from globally certified manufacturers.</p>
+        </div>
+        <div class="service-card" data-reveal data-delay="2">
+          <span class="service-card-num">03</span>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--green-deep)" stroke-width="1.5"><rect x="3" y="11" width="18" height="10" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          </div>
+          <h4>HSE &amp; Safety Equipment</h4>
+          <p>Personal protective equipment (PPE), gas detection systems, fire safety equipment, and other Health, Safety &amp; Environment supplies critical to oil &amp; gas operations.</p>
+        </div>
+        <div class="service-card" data-reveal data-delay="3">
+          <span class="service-card-num">04</span>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--green-deep)" stroke-width="1.5"><path d="M3.055 11H5a2 2 0 0 1 2 2v1a2 2 0 0 0 2 2 2 2 0 0 1 2 2v2.945M8 3.935V5.5A2.5 2.5 0 0 0 10.5 8h.5a2 2 0 0 1 2 2 2 2 0 1 0 4 0 2 2 0 0 1 2-2h1.064M15 20.488V18a2 2 0 0 1 2-2h3.064M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/></svg>
+          </div>
+          <h4>Process &amp; Maintenance Support</h4>
+          <p>Plant maintenance contracts, shutdown support, process optimisation, troubleshooting, and rehabilitation of existing oil &amp; gas processing facilities.</p>
+        </div>
+        <div class="service-card" data-reveal data-delay="4">
+          <span class="service-card-num">05</span>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--green-deep)" stroke-width="1.5"><path d="M9 5H7a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V7a2 2 0 0 0-2-2h-2M9 5a2 2 0 0 0 2 2h2a2 2 0 0 0 2-2M9 5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01"/></svg>
+          </div>
+          <h4>Procurement &amp; Logistics</h4>
+          <p>End-to-end procurement management for oil &amp; gas operators — global sourcing, expediting, inspection, freight forwarding, and customs clearance into Nigeria.</p>
+        </div>
+        <div class="service-card" data-reveal data-delay="5">
+          <span class="service-card-num">06</span>
+          <div class="card-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="var(--green-deep)" stroke-width="1.5"><path d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
+          </div>
+          <h4>Power &amp; Electrical Systems</h4>
+          <p>Supply and installation of generators, backup power systems, electrical infrastructure, and process electrical equipment for upstream and downstream facilities.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <div class="cta-strip">
+    <div class="container cta-strip-inner">
+      <div>
+        <h3>Tendering or Procuring for an Oil &amp; Gas Project?</h3>
+        <p>NIPEX-registered. Three decades of sector experience. Get in touch for vendor pre-qualification or RFQs.</p>
+      </div>
+      <a href="contact.html" class="btn btn--gold">Speak to Our Team</a>
+    </div>
+  </div>
+
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="nav-logo">
+            <div class="nav-logo-mark">SH</div>
+            <div class="nav-logo-text">
+              <span class="nav-logo-name">Shebag Holdings</span>
+              <span class="nav-logo-sub">Limited · Est. 1988</span>
+            </div>
+          </div>
+          <p>A leading Nigerian conglomerate delivering diversified excellence across Computing &amp; Telecommunications, Oil &amp; Gas, Engineering, Mining, and Agriculture since 1988.</p>
+        </div>
+        <div class="footer-col"><h5>Company</h5><ul><li><a href="about.html">About Us</a></li><li><a href="about.html#management">Management</a></li><li><a href="contact.html">Contact</a></li></ul></div>
+        <div class="footer-col"><h5>Divisions</h5><ul><li><a href="computing.html">Computing &amp; Telecom</a></li><li><a href="oilgas.html">Oil &amp; Gas</a></li><li><a href="engineering.html">Engineering</a></li><li><a href="mining.html">Mining</a></li><li><a href="agriculture.html">Agriculture</a></li></ul></div>
+        <div class="footer-col"><h5>Contact</h5><ul><li><a href="#">141 Christopher Okojie Crescent</a></li><li><a href="#">Katampe Extension, Abuja</a></li><li><a href="mailto:sbalogun@hotmail.com">sbalogun@hotmail.com</a></li></ul></div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 Shebag Holdings Limited. All rights reserved.</p>
+        <div class="footer-award"><div class="footer-award-badge">★</div><span>Euromarket Award 2002 · Brussels</span></div>
+      </div>
+    </div>
+  </footer>
+  <script src="js/main.js"></script>
+</body>
+</html>
