@@ -471,5 +471,19 @@ p  { font-size: 1rem; color: var(--ink-light); }
 @media (max-width: 640px) {
   .footer-grid { grid-template-columns: 1fr; }
   .footer-bottom { flex-direction: column; text-align: center; }
-  .section { padding: 64px 0; }
+  .section { padding: 56px 0; }
+  .container { padding: 0 1.25rem; }
+  h1 { font-size: clamp(2.2rem, 8vw, 3.2rem); }
+  h2 { font-size: clamp(1.7rem, 6vw, 2.4rem); }
+  h3 { font-size: clamp(1.25rem, 5vw, 1.7rem); }
+  .btn { padding: 0.85rem 1.5rem; font-size: 0.8rem; }
+  .page-hero { padding-top: calc(var(--nav-height) + 48px); padding-bottom: 56px; }
+  .page-hero h1 { line-height: 1.15; }
+  .page-hero p { font-size: 1rem; }
+  .card { padding: 1.5rem; }
+  #footer { padding: 56px 0 0; }
+  .footer-grid { gap: 2rem; padding-bottom: 2rem; }
+  .nav-logo-name { font-size: 0.95rem; }
+  .nav-logo-sub { font-size: 0.55rem; }
+  .nav-logo-mark { width: 34px; height: 34px; font-size: 1rem; }
 }
