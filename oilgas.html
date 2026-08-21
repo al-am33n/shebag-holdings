@@ -55,6 +55,98 @@
       .sector-item { border-right: none; border-bottom: 1px solid rgba(10,42,26,0.08); }
       .sector-item:last-child { border-bottom: none; }
     }
+
+    /* ── Products Marketed — interactive tabs ── */
+    .products-tabs { max-width: 900px; margin: 0 auto; }
+    .products-tablist {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 0.6rem;
+      margin-bottom: 2rem;
+    }
+    .product-tab {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+      color: var(--green-deep);
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      padding: 0.6rem 1.4rem;
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+    .product-tab:hover {
+      border-color: var(--gold);
+      background: var(--gold-pale);
+    }
+    .product-tab.is-active {
+      background: var(--green-deep);
+      color: var(--white);
+      border-color: var(--green-deep);
+      box-shadow: var(--shadow);
+    }
+    .product-panels { position: relative; }
+    .product-panel {
+      display: none;
+      grid-template-columns: auto 1fr;
+      gap: 1.75rem;
+      align-items: start;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--gold);
+      border-radius: 14px;
+      padding: 2.25rem 2.5rem;
+      box-shadow: var(--shadow);
+      animation: productFade 0.4s ease;
+    }
+    .product-panel.is-active { display: grid; }
+    @keyframes productFade {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+    .product-panel-icon {
+      font-size: 2.75rem;
+      line-height: 1;
+      background: var(--gold-pale);
+      width: 76px;
+      height: 76px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 14px;
+      flex-shrink: 0;
+    }
+    .product-panel-body h3 {
+      color: var(--green-deep);
+      font-size: 1.4rem;
+      margin-bottom: 0.75rem;
+    }
+    .product-panel-body h3 span {
+      display: block;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 0.35rem;
+    }
+    .product-panel-body p {
+      color: var(--ink-light);
+      line-height: 1.8;
+      margin: 0;
+    }
+    @media (max-width: 640px) {
+      .products-tablist { gap: 0.45rem; }
+      .product-tab { font-size: 0.82rem; padding: 0.5rem 1.05rem; }
+      .product-panel { grid-template-columns: 1fr; gap: 1.1rem; padding: 1.75rem 1.5rem; text-align: left; }
+      .product-panel-icon { width: 60px; height: 60px; font-size: 2.1rem; }
+      .product-panel-body h3 { font-size: 1.2rem; }
+    }
   </style>
 </head>
 <body>
@@ -141,6 +233,99 @@
           <div class="sector-icon">⚙️</div>
           <h4>Downstream</h4>
           <p>Refining, distribution &amp; petrochemicals</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCTS MARKETED -->
+  <section class="section" style="padding-top:0;">
+    <div class="container">
+      <div style="text-align:center; margin-bottom:3rem;" data-reveal>
+        <p class="section-label">Products Marketed</p>
+        <div class="gold-line gold-line--center"></div>
+        <h2 style="color:var(--green-deep);">Petroleum &amp; Petrochemical Products</h2>
+        <p style="max-width:560px; margin:0.75rem auto 0;">Shebag markets a diversified portfolio of refined petroleum products and petrochemicals across Nigeria's downstream sector. Select a product to learn more.</p>
+      </div>
+
+      <div class="products-tabs" data-reveal>
+        <!-- Tab buttons -->
+        <div class="products-tablist" role="tablist" aria-label="Petroleum products marketed">
+          <button class="product-tab is-active" role="tab" aria-selected="true"  data-product="pms">PMS</button>
+          <button class="product-tab" role="tab" aria-selected="false" data-product="ago">AGO</button>
+          <button class="product-tab" role="tab" aria-selected="false" data-product="dpk">DPK</button>
+          <button class="product-tab" role="tab" aria-selected="false" data-product="lpg">LPG</button>
+          <button class="product-tab" role="tab" aria-selected="false" data-product="fueloil">Fuel Oil</button>
+          <button class="product-tab" role="tab" aria-selected="false" data-product="polypropylene">Polypropylene</button>
+          <button class="product-tab" role="tab" aria-selected="false" data-product="sulphur">Sulphur</button>
+          <button class="product-tab" role="tab" aria-selected="false" data-product="urea">Urea</button>
+        </div>
+
+        <!-- Tab panels -->
+        <div class="product-panels">
+          <div class="product-panel is-active" role="tabpanel" data-product="pms">
+            <div class="product-panel-icon">⛽</div>
+            <div class="product-panel-body">
+              <h3>PMS <span>— Premium Motor Spirit (Petrol)</span></h3>
+              <p>Premium Motor Spirit, commonly known as petrol, is the primary fuel for spark-ignition engines across Nigeria's transport and commercial sectors. Shebag supplies PMS to the standards and specifications set by the relevant downstream regulators, supporting distribution to marketers, filling stations, and bulk end-users.</p>
+            </div>
+          </div>
+
+          <div class="product-panel" role="tabpanel" data-product="ago">
+            <div class="product-panel-icon">🛻</div>
+            <div class="product-panel-body">
+              <h3>AGO <span>— Automotive Gas Oil (Diesel)</span></h3>
+              <p>Automotive Gas Oil, or diesel, powers heavy-duty engines, industrial machinery, generators, and haulage fleets. Shebag markets AGO to industrial consumers, power generation operators, construction firms, and the logistics sector — with a focus on consistent quality and reliable supply for operations that cannot afford downtime.</p>
+            </div>
+          </div>
+
+          <div class="product-panel" role="tabpanel" data-product="dpk">
+            <div class="product-panel-icon">🔥</div>
+            <div class="product-panel-body">
+              <h3>DPK <span>— Dual Purpose Kerosene</span></h3>
+              <p>Dual Purpose Kerosene serves both domestic and aviation-adjacent applications, from household heating and cooking to industrial use. Shebag supplies DPK to distributors and commercial consumers, maintaining the handling and storage standards this refined product requires.</p>
+            </div>
+          </div>
+
+          <div class="product-panel" role="tabpanel" data-product="lpg">
+            <div class="product-panel-icon">🫗</div>
+            <div class="product-panel-body">
+              <h3>LPG <span>— Liquefied Petroleum Gas (Cooking Gas)</span></h3>
+              <p>Liquefied Petroleum Gas is central to Nigeria's clean-cooking transition, replacing traditional biomass fuels in homes and businesses. Shebag participates in the LPG value chain — supplying to distributors, plant operators, and bulk off-takers — supporting wider access to cleaner household and commercial energy.</p>
+            </div>
+          </div>
+
+          <div class="product-panel" role="tabpanel" data-product="fueloil">
+            <div class="product-panel-icon">🏭</div>
+            <div class="product-panel-body">
+              <h3>Fuel Oil <span>— Heavy Fuel Oil (HFO / LPFO)</span></h3>
+              <p>Fuel Oil is a heavy residual product used for industrial heat and power generation, marine bunkering, and large-scale boiler and furnace operations. Shebag markets fuel oil to manufacturers, industrial plants, and power producers requiring a dependable energy source for high-demand thermal applications.</p>
+            </div>
+          </div>
+
+          <div class="product-panel" role="tabpanel" data-product="polypropylene">
+            <div class="product-panel-icon">🧪</div>
+            <div class="product-panel-body">
+              <h3>Polypropylene <span>— Petrochemical Polymer</span></h3>
+              <p>Polypropylene is a versatile thermoplastic polymer and a key petrochemical feedstock for manufacturing — used in packaging, textiles, automotive components, containers, and consumer goods. Shebag supplies polypropylene resin to Nigeria's manufacturing and plastics-processing industries, connecting local producers to reliable raw-material sources.</p>
+            </div>
+          </div>
+
+          <div class="product-panel" role="tabpanel" data-product="sulphur">
+            <div class="product-panel-icon">⚗️</div>
+            <div class="product-panel-body">
+              <h3>Sulphur <span>— Industrial &amp; Agricultural Grade</span></h3>
+              <p>Sulphur is a fundamental industrial raw material, essential to fertilizer production, chemical manufacturing, and a range of processing industries. Shebag markets sulphur to agricultural input producers and industrial consumers, supporting both the fertilizer value chain and downstream chemical applications.</p>
+            </div>
+          </div>
+
+          <div class="product-panel" role="tabpanel" data-product="urea">
+            <div class="product-panel-icon">🌱</div>
+            <div class="product-panel-body">
+              <h3>Urea <span>— Nitrogen Fertilizer</span></h3>
+              <p>Urea is the world's most widely used nitrogen fertilizer and a cornerstone of agricultural productivity. Bridging Shebag's oil &amp; gas and agriculture interests, we market urea to distributors, agro-dealers, and large-scale farming operations — supporting food security through improved crop yields across Nigeria.</p>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -242,6 +427,26 @@
       </div>
     </div>
   </footer>
+  <script>
+    // ── Products Marketed tabs ──
+    (function () {
+      const tabs = document.querySelectorAll('.product-tab');
+      const panels = document.querySelectorAll('.product-panel');
+      tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+          const key = tab.getAttribute('data-product');
+          tabs.forEach(t => {
+            const active = t === tab;
+            t.classList.toggle('is-active', active);
+            t.setAttribute('aria-selected', active ? 'true' : 'false');
+          });
+          panels.forEach(p => {
+            p.classList.toggle('is-active', p.getAttribute('data-product') === key);
+          });
+        });
+      });
+    })();
+  </script>
   <script src="js/main.js"></script>
 </body>
 </html>
