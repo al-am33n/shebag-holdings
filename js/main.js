@@ -24,6 +24,26 @@ if (toggle) {
   });
 }
 
+// ── Divisions dropdown: click / tap to open (works alongside hover) ──
+document.querySelectorAll('.nav-dropdown').forEach(dd => {
+  const trigger = dd.querySelector('a');
+  if (!trigger) return;
+  trigger.addEventListener('click', (e) => {
+    // The trigger is a placeholder link (#); never navigate.
+    e.preventDefault();
+    const wasOpen = dd.classList.contains('is-open');
+    // Close any other open dropdowns.
+    document.querySelectorAll('.nav-dropdown.is-open').forEach(o => o.classList.remove('is-open'));
+    dd.classList.toggle('is-open', !wasOpen);
+  });
+});
+// Click outside closes any open dropdown.
+document.addEventListener('click', (e) => {
+  if (!e.target.closest('.nav-dropdown')) {
+    document.querySelectorAll('.nav-dropdown.is-open').forEach(o => o.classList.remove('is-open'));
+  }
+});
+
 // ── Active nav link ──
 const currentPage = window.location.pathname.split('/').pop() || 'index.html';
 document.querySelectorAll('.nav-links a').forEach(link => {

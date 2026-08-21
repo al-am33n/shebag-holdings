@@ -249,8 +249,20 @@ p  { font-size: 1rem; color: var(--ink-light); }
   pointer-events: none;
   transform: translateY(8px);
   transition: var(--transition);
+  z-index: 100;
 }
-.nav-dropdown:hover .nav-dropdown-menu {
+/* Invisible bridge so moving the cursor from the trigger to the menu
+   doesn't cross a dead gap that closes the dropdown. */
+.nav-dropdown::after {
+  content: "";
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  height: 14px;
+}
+.nav-dropdown:hover .nav-dropdown-menu,
+.nav-dropdown.is-open .nav-dropdown-menu {
   opacity: 1;
   pointer-events: all;
   transform: translateY(0);
