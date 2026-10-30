@@ -131,6 +131,34 @@
     }
     .person-card p { font-size: 0.85rem; margin-top: 0.75rem; }
 
+    /* Division overview cards (unified leadership) */
+    .div-brief { text-align: center; }
+    .div-brief .div-badge {
+      width: 58px;
+      height: 58px;
+      background: var(--green-mid);
+      border: 1px solid var(--gold);
+      border-radius: 12px;
+      margin: 0 auto 1rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--gold);
+    }
+    .div-brief h4 { color: var(--white); font-size: 1rem; }
+    .div-brief .role {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-top: 0.25rem;
+    }
+    .div-brief p { font-size: 0.84rem; margin-top: 0.6rem; color: rgba(255,255,255,0.72); }
+
     /* ── SUSTAINABILITY SECTION ── */
     .sustainability-section {
       background: linear-gradient(135deg, #0E3A24 0%, #14422A 100%);
@@ -549,42 +577,55 @@
         </div>
       </div>
 
-      <!-- Wider Leadership Team -->
-      <div style="text-align:center; margin: 3rem 0 2rem;" data-reveal>
-        <p class="section-label" style="color:var(--gold);">Division Leadership</p>
+      <!-- Divisions overview (unified leadership) -->
+      <div style="text-align:center; margin: 3rem 0 1rem;" data-reveal>
+        <p class="section-label" style="color:var(--gold);">Our Divisions</p>
         <div class="gold-line gold-line--center"></div>
-        <h3 style="color:var(--white); font-size:1.6rem;">Operating Across Seven Divisions</h3>
+        <h3 style="color:var(--white); font-size:1.6rem;">Unified Leadership, Seven Divisions</h3>
+        <p style="max-width:640px; margin:1rem auto 0; color:rgba(255,255,255,0.72);">Every division operates under the unified leadership of founder and Managing Director Sheriff Balogun, supported by a central management team — ensuring consistent standards, compliance, and accountability across the entire group.</p>
       </div>
       <div class="management-grid">
-        <div class="person-card" data-reveal>
-          <div class="person-photo">CT</div>
+        <div class="div-brief" data-reveal>
+          <div class="div-badge">01</div>
           <h4>Computing &amp; Telecom</h4>
           <p class="role">ICT, Security &amp; Networks</p>
-          <p>Leading technology supply, telecom installation, physical security, and training for institutions across Nigeria.</p>
+          <p>Technology supply, telecom installation, physical security systems, and IT training for institutions across Nigeria.</p>
         </div>
-        <div class="person-card" data-reveal data-delay="1">
-          <div class="person-photo">OG</div>
-          <h4>Oil &amp; Gas Division</h4>
+        <div class="div-brief" data-reveal data-delay="1">
+          <div class="div-badge">02</div>
+          <h4>Oil &amp; Gas</h4>
           <p class="role">Field Services &amp; Supply</p>
-          <p>Heading oil field services, equipment supply, and NIPEX vendor operations across upstream, midstream and downstream sectors.</p>
+          <p>Oil field services, equipment supply, and NIPEX vendor operations across upstream, midstream, and downstream sectors.</p>
         </div>
-        <div class="person-card" data-reveal data-delay="2">
-          <div class="person-photo">EN</div>
-          <h4>Engineering Division</h4>
+        <div class="div-brief" data-reveal data-delay="2">
+          <div class="div-badge">03</div>
+          <h4>Engineering</h4>
           <p class="role">Technical &amp; Contracts</p>
-          <p>Overseeing technical projects, government contracts, water engineering, and scientific equipment procurement.</p>
+          <p>Technical projects, government contracts, water engineering, and scientific equipment procurement.</p>
         </div>
-        <div class="person-card" data-reveal data-delay="3">
-          <div class="person-photo">MN</div>
-          <h4>Mining Division</h4>
+        <div class="div-brief" data-reveal data-delay="3">
+          <div class="div-badge">04</div>
+          <h4>Mining</h4>
           <p class="role">Solid Minerals</p>
-          <p>Directing solid mineral exploration, licensing, sustainable extraction, and offtake partnerships.</p>
+          <p>Solid mineral exploration, licensing, sustainable extraction, and offtake partnerships.</p>
         </div>
-        <div class="person-card" data-reveal data-delay="4">
-          <div class="person-photo">AG</div>
-          <h4>Agriculture Division</h4>
+        <div class="div-brief" data-reveal data-delay="4">
+          <div class="div-badge">05</div>
+          <h4>Agriculture</h4>
           <p class="role">Commodities, Export &amp; Advisory</p>
-          <p>Managing commodity sourcing, processing, quality assurance, export to three continents, and agricultural consulting.</p>
+          <p>Commodity sourcing, processing, quality assurance, export to three continents, and agricultural consulting.</p>
+        </div>
+        <div class="div-brief" data-reveal data-delay="5">
+          <div class="div-badge">06</div>
+          <h4>Heavy Machinery &amp; Equipment</h4>
+          <p class="role">Sales, Leasing &amp; Support</p>
+          <p>Supply, sales, and leasing of tractors, excavators, dump trucks, wagon drills, and harvesters with maintenance support.</p>
+        </div>
+        <div class="div-brief" data-reveal data-delay="5">
+          <div class="div-badge">07</div>
+          <h4>Food &amp; Beverages</h4>
+          <p class="role">Production &amp; Distribution</p>
+          <p>Production and distribution of beverages, ice cream, packaged water, snacks, and spices for retail and wholesale markets.</p>
         </div>
       </div>
     </div>
