@@ -82,7 +82,7 @@ document.querySelectorAll('.current-year').forEach(el => {
 
 // ── Floating WhatsApp button ──
 (function () {
-  const WA_NUMBER = '2348036484132';
+  const WA_NUMBER = '2348181900509';
   const WA_TEXT = encodeURIComponent('Hello Shebag Holdings, I would like to make an enquiry.');
   const a = document.createElement('a');
   a.href = `https://wa.me/${WA_NUMBER}?text=${WA_TEXT}`;
